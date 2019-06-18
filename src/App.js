@@ -4,6 +4,7 @@ import './App.css';
 
 import Box from './Box';
 import Container from './Container';
+import StateReadWriter from './StateReadWriter';
 
 class App extends Component {
     state = {
@@ -31,10 +32,16 @@ class App extends Component {
         }
     };
 
+    writeState = (newState) => this.setState(newState);
+
     render() {
         return (
             <div className="App">
                 {this.renderElement(this.state)}
+                <StateReadWriter
+                    state={this.state}
+                    writeState={this.writeState}
+                />
             </div>
         );
     }

@@ -1,0 +1,6 @@
+.ReadInput {
+    -webkit-user-select: all;
+    -ms-user-select: all;
+    -moz-user-select: all;
+    user-select: all;
+}
