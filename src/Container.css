@@ -1,11 +1,17 @@
 .Container {
-    padding: 15px;
+    align-items: center;
     border: 1px solid black;
     border-radius: 2px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 7.5px;
+    padding: 7.5px;
 }
 
 .AddButton {
     border-radius: 5px;
     height: 50px;
+    margin: 7.5px;
     width: 100px;
 }
