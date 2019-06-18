@@ -1,6 +1,8 @@
 import React, { createRef, Fragment, Component } from 'react';
 import './StateReadWriter.css';
 
+import validateState from './validate';
+
 class StateReadWriter extends Component {
     state = {
         stringifiedState: '',
@@ -14,8 +16,16 @@ class StateReadWriter extends Component {
         const { current } = this.stateInput;
 
         if (current) {
-            this.props.writeState(JSON.parse(current.value));
-            current.value = '';
+            try {
+                const newState = JSON.parse(current.value);
+
+                validateState(newState);
+
+                this.props.writeState(newState);
+                current.value = '';
+            } catch (e) {
+                alert(e);
+            }
         }
     };
 
