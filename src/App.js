@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import 'normalize.css';
 import './App.css';
 
+import Box from './Box';
 import Container from './Container';
 
 class App extends Component {
@@ -16,6 +17,13 @@ class App extends Component {
                 <Container key={index}>
                     {element.items.map(this.renderElement)}
                 </Container>
+            );
+
+            case 'box': return (
+                <Box
+                    key={index}
+                    element={element}
+                />
             );
 
             default:
