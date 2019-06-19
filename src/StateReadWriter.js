@@ -10,7 +10,7 @@ class StateReadWriter extends Component {
 
     stateInput = createRef();
 
-    stringifyCurrentState = () => this.setState({ stringifiedState: JSON.stringify(this.props.state) });
+    stringifyCurrentState = () => this.setState({ stringifiedState: JSON.stringify(this.props.rootElement) });
 
     parseNewState = () => {
         const { current } = this.stateInput;
@@ -21,7 +21,7 @@ class StateReadWriter extends Component {
 
                 validateState(newState);
 
-                this.props.writeState(newState);
+                this.props.replaceRoot(newState);
                 current.value = '';
             } catch (e) {
                 alert(e);

@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { observable, decorate } from 'mobx';
+import { observer } from 'mobx-react';
+
 import 'normalize.css';
 import './App.css';
 
@@ -7,7 +10,7 @@ import Container from './Container';
 import StateReadWriter from './StateReadWriter';
 
 class App extends Component {
-    state = {
+    rootElement = {
         type: 'container',
         items: [],
     };
@@ -32,19 +35,23 @@ class App extends Component {
         }
     };
 
-    writeState = (newState) => this.setState(newState);
+    replaceRoot = (newRootElement) => this.rootElement = newRootElement;
 
     render() {
         return (
             <div className="App">
-                {this.renderElement(this.state)}
+                {this.renderElement(this.rootElement)}
                 <StateReadWriter
-                    state={this.state}
-                    writeState={this.writeState}
+                    rootElement={this.rootElement}
+                    replaceRoot={this.replaceRoot}
                 />
             </div>
         );
     }
 }
 
-export default App;
+decorate(App, {
+    rootElement: observable,
+});
+
+export default observer(App);
