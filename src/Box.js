@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { observer } from 'mobx-react';
 import './Box.css';
 
@@ -9,31 +9,33 @@ class Box extends Component {
 
     render() {
         return (
-            <div
-                className="Box"
-                style={{
-                    backgroundColor: this.props.element.color || 'orange',
-                }}
-            >
-                <div className="FloatingButtons">
-                    <button
-                        className="ActionButton"
-                        onClick={this.changeColor}
-                    >
-                        Change Color
-                    </button>
-                    {
-                        this.props.parent ? (
-                            <button
-                                className="ActionButton"
-                                onClick={this.remove}
-                            >
-                                Remove
-                            </button>
-                        ) : null
-                    }
+            <Fragment>
+                <div
+                    className="Box"
+                    style={{
+                        backgroundColor: this.props.element.color || 'orange',
+                    }}
+                >
+                    <div className="FloatingButtons">
+                        <button
+                            className="ActionButton"
+                            onClick={this.changeColor}
+                        >
+                            Change Color
+                        </button>
+                        {
+                            this.props.parent ? (
+                                <button
+                                    className="ActionButton"
+                                    onClick={this.remove}
+                                >
+                                    Remove
+                                </button>
+                            ) : null
+                        }
+                    </div>
                 </div>
-            </div>
+            </Fragment>
         );
     }
 }
