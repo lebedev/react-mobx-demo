@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import { observer } from 'mobx-react';
 import './Box.css';
 
 class Box extends Component {
+    handleClick = () => this.props.changeColor(this.props.element);
+
     render() {
         return (
             <div
@@ -9,9 +12,10 @@ class Box extends Component {
                 style={{
                     backgroundColor: this.props.element.color || 'orange',
                 }}
+                onClick={this.handleClick}
             />
         );
     }
 }
 
-export default Box;
+export default observer(Box);

@@ -26,6 +26,18 @@ class App extends Component {
         );
     };
 
+    changeBoxColor = (box) => {
+        switch (box.color) {
+            case 'yellow': box.color = 'green'; break;
+            case 'green': box.color = 'dodgerblue'; break;
+            case 'dodgerblue': box.color = 'blue'; break;
+            case 'blue': box.color = 'purple'; break;
+            case 'purple': box.color = 'red'; break;
+            case 'red': box.color = 'orange'; break;
+            default: box.color = 'yellow'; break;
+        }
+    };
+
     renderElement = (element, index = 0) => {
         switch (element.type) {
             case 'container': return (
@@ -42,6 +54,7 @@ class App extends Component {
                 <Box
                     key={index}
                     element={element}
+                    changeColor={this.changeBoxColor}
                 />
             );
 
