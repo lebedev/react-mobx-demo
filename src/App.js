@@ -60,7 +60,9 @@ class App extends Component {
                 <Box
                     key={index}
                     element={element}
+                    parent={parent}
                     changeColor={this.changeBoxColor}
+                    remove={this.remove}
                 />
             );
 

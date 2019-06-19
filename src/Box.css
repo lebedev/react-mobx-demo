@@ -1,5 +1,10 @@
 .Box {
     height: 75px;
     margin: 7.5px;
+    position: relative;
     width: 75px;
+}
+
+.Box:hover .FloatingButtons {
+    display: flex;
 }
