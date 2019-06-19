@@ -8,11 +8,13 @@ class AddButton extends Component {
                 <div className="FloatingButtons">
                     <button
                         className="ActionButton"
+                        onClick={this.props.addBox}
                     >
                         Box
                     </button>
                     <button
                         className="ActionButton"
+                        onClick={this.props.addContainer}
                     >
                         Container
                     </button>

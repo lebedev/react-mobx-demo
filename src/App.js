@@ -15,10 +15,25 @@ class App extends Component {
         items: [],
     };
 
+    addElement = (targetElement, type) => {
+        targetElement.items.push(
+            type === 'box' ? {
+                type: 'box'
+            } : {
+                type: 'container',
+                items: [],
+            }
+        );
+    };
+
     renderElement = (element, index = 0) => {
         switch (element.type) {
             case 'container': return (
-                <Container key={index}>
+                <Container
+                    key={index}
+                    element={element}
+                    addElement={this.addElement}
+                >
                     {element.items.map(this.renderElement)}
                 </Container>
             );
