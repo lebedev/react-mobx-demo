@@ -8,6 +8,8 @@ class Container extends Component {
 
     addContainer = () => this.props.addElement(this.props.element, 'container');
 
+    remove = this.props.parent ? () => this.props.remove(this.props.parent, this.props.element) : undefined;
+
     render() {
         return (
             <div className="Container">
@@ -15,6 +17,7 @@ class Container extends Component {
                 <ContainerButton
                     addBox={this.addBox}
                     addContainer={this.addContainer}
+                    remove={this.remove}
                 />
             </div>
         );

@@ -10,17 +10,27 @@ class ContainerButton extends Component {
                         className="ActionButton"
                         onClick={this.props.addBox}
                     >
-                        Box
+                        Add a Box
                     </button>
                     <button
                         className="ActionButton"
                         onClick={this.props.addContainer}
                     >
-                        Container
+                        Add a Container
                     </button>
+                    {
+                        this.props.remove ? (
+                            <button
+                                className="ActionButton"
+                                onClick={this.props.remove}
+                            >
+                                Remove
+                            </button>
+                        ) : null
+                    }
                 </div>
                 <button className="ActionButton">
-                    Add
+                    Action
                 </button>
             </div>
         );

@@ -38,15 +38,21 @@ class App extends Component {
         }
     };
 
-    renderElement = (element, index = 0) => {
+    remove = (parent, element) => {
+        parent.items.splice(parent.items.indexOf(element), 1);
+    };
+
+    renderElement = (element, index = 0, parent) => {
         switch (element.type) {
             case 'container': return (
                 <Container
                     key={index}
                     element={element}
+                    parent={parent}
                     addElement={this.addElement}
+                    remove={this.remove}
                 >
-                    {element.items.map(this.renderElement)}
+                    {element.items.map((child, index) => this.renderElement(child, index, element))}
                 </Container>
             );
 
