@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Container.css';
 
-import AddButton from './AddButton';
+import ContainerButton from './ContainerButton';
 
 class Container extends Component {
     addBox = () => this.props.addElement(this.props.element, 'box');
@@ -12,7 +12,7 @@ class Container extends Component {
         return (
             <div className="Container">
                 {this.props.children}
-                <AddButton
+                <ContainerButton
                     addBox={this.addBox}
                     addContainer={this.addContainer}
                 />

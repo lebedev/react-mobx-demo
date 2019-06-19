@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './AddButton.css';
+import './ContainerButton.css';
 
-class AddButton extends Component {
+class ContainerButton extends Component {
     render() {
         return (
             <div className="ButtonContainer">
@@ -27,4 +27,4 @@ class AddButton extends Component {
     }
 }
 
-export default AddButton;
+export default ContainerButton;
