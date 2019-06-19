@@ -4,11 +4,23 @@ import './AddButton.css';
 class AddButton extends Component {
     render() {
         return (
-            <button
-                className="AddButton"
-            >
-                Add
-            </button>
+            <div className="ButtonContainer">
+                <div className="FloatingButtons">
+                    <button
+                        className="ActionButton"
+                    >
+                        Box
+                    </button>
+                    <button
+                        className="ActionButton"
+                    >
+                        Container
+                    </button>
+                </div>
+                <button className="ActionButton">
+                    Add
+                </button>
+            </div>
         );
     }
 }
