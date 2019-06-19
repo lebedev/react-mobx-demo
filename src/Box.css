@@ -8,3 +8,26 @@
 .Box:hover .FloatingButtons {
     display: flex;
 }
+
+.PickerContainer {
+    left: 50%;
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%) translateY(-100%);
+    user-select: none;
+    z-index: 2;
+}
+
+.PickerOverlay {
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 100vh;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 2;
+}
+
+.PickerContainer:hover + .FloatingButtons {
+    display: none;
+}
